@@ -1,46 +1,39 @@
 Laravel Elixir Twig Extension
 =============================
 
-[![Build Status](https://img.shields.io/travis/brieucthomas/elixir-twig-extension/master.svg?style=flat-square)](https://travis-ci.org/brieucthomas/elixir-twig-extension)
+[![Build Status](https://img.shields.io/travis/stormiix/laravel-mix-twig-extension/master.svg?style=flat-square)](https://travis-ci.org/stormiix/laravel-mix-twig-extension)
 
-The Laravel Elixir `version` task appends a unique hash to filename, 
+The Laravel mix `version` task appends a unique hash to filename,
 allowing for cache-busting.
- 
-``` js
-elixir(function(mix) {
-    mix.version("css/all.css");
-});
-```
-
-For example, the generated file name will look something like: 
+For example, the generated file name will look something like:
 `all-16d570a7.css`.
 
-In Laravel, you can use in your views the `elixir()` function to load 
+In Laravel, you can use in your views the `mix()` function to load
 the appropriately hashed asset:
 
 ``` html
-<link rel="stylesheet" href="{{ elixir("css/all.css") }}">
+<link rel="stylesheet" href="{{ mix("css/all.css") }}">
 ```
 
-This twig extension is an adaptation of this `elixir()` function. 
+This twig extension is an adaptation of this `mix()` function.
 
 ## Requirements
 
-You need PHP >= 5.5.9 to use the library, but the latest stable version 
+You need PHP >= 7.0 to use the library, but the latest stable version
 of PHP is recommended.
 
-## Install 
+## Install
 
 Install using Composer:
 
 ``` bash
-composer require brieucthomas/elixir-twig-extension
+composer require stormiix/laravel-mix-twig-extension
 ```
 
-This will edit (or create) your composer.json file and automatically 
+This will edit (or create) your composer.json file and automatically
 choose the most recent version.
 
-## Documentation
+## Documentation [TODO]
 
 ### Register the extension
 
@@ -48,7 +41,7 @@ choose the most recent version.
 use BrieucThomas\Twig\Extension\ElixirExtension;
 
 $elixir = new ElixirExtension(
-    $publicDir,     // the absolute public directory 
+    $publicDir,     // the absolute public directory
     $buildDir,      // the elixir build directory (default value is 'build')
     $manifestName   // the manifest filename (default value is 'rev-manifest.json')
 );
@@ -70,7 +63,7 @@ services:
 
 ### Create a gulpfile
 
-Here an example of `gulpfile.js` to compile and version 
+Here an example of `gulpfile.js` to compile and version
 the script `app/Resources/js/app.js` :
 
 ```javascript
@@ -98,7 +91,7 @@ elixir(function(mix) {
 <script src="{{ elixir('js/all.js') }}"></script>
 ```
 
-You can surround with the `asset` twig extension to make your 
+You can surround with the `asset` twig extension to make your
 application more portable:
 
 ``` twig

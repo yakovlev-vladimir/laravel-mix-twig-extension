@@ -49,7 +49,7 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
 
     public function testGetVersionedFilePath()
     {
-        $mix = new MixExtension(__DIR__.'/fixtures');
+        $mix = new MixExtension('fixtures');
         $this->assertSame('fixtures/css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
     }
 
