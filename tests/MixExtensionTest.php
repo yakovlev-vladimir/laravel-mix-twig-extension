@@ -23,7 +23,7 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
     {
         $twig = new \Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock(), ['cache' => false, 'autoescape' => false, 'optimizations' => 0]);
         $twig->addExtension(new MixExtension('public'));
-        $nodes = $twig->parse($twig->tokenize($source));
+        $nodes = $twig->parse($twig->tokenize(new \Twig_Source($source,"MixTest")));
 
         $this->assertEquals($expected, $nodes->getNode('body')->getNode(0));
     }
@@ -32,10 +32,10 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
     {
         return array(
             array(
-                '{{ mix("css/all.css") }}',
+                '{{ Mix("css/all.css") }}',
                 new \Twig_Node_Print(
                     new \Twig_Node_Expression_Function(
-                        'mix',
+                        'Mix',
                         new \Twig_Node([
                             new \Twig_Node_Expression_Constant('css/all.css', 1),
                         ]),

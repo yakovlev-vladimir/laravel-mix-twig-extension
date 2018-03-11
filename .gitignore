@@ -3,3 +3,5 @@
 /phpunit.xml
 /.php_cs.cache
 /.editorconfig
+/phpunit.phar
+/phpunit.cmd
