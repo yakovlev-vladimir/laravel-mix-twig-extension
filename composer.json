@@ -1,5 +1,5 @@
 {
-    "name": "Stormiix/laravel-mix-twig-extension",
+    "name": "stormiix/laravel-mix-twig-extension",
     "license": "MIT",
     "type": "library",
     "description" : "Laravel Mix twig extension",
