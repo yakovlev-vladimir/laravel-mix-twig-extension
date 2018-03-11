@@ -14,7 +14,7 @@ use Stormiix\Twig\Extension\MixExtension;
 /**
  * @author Anas Mazouni <hello@stormix.co>
  */
-class MixExtensionTest extends \PHPUnit_Framework_TestCase
+class MixExtensionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider fixtureProvider
