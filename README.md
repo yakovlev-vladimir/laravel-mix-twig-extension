@@ -1,6 +1,8 @@
 Laravel Elixir Twig Extension
 =============================
 
+[![GitHub stars](https://img.shields.io/github/stars/Stormiix/laravel-mix-twig-extension.svg)](https://github.com/Stormiix/laravel-mix-twig-extension/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Stormiix/laravel-mix-twig-extension.svg?style=flat)](https://github.com/Stormiix/laravel-mix-twig-extension/network)
 [![Build Status](https://img.shields.io/travis/Stormiix/laravel-mix-twig-extension/master.svg?style=flat-square)](https://travis-ci.org/Stormiix/laravel-mix-twig-extension)
 
 The Laravel mix `version` task appends a unique hash to filename,
@@ -65,3 +67,13 @@ application more portable:
 <link rel="stylesheet" href="{{ asset(Mix('css/all.css')) }}">
 <script src="{{ asset(Mix('js/all.js')) }}"></script>
 ```
+
+## Authors
+
+* **Brieuc Thomas** - *Initial work* - [Elixir-twig-extension](https://github.com/brieucthomas/elixir-twig-extension)
+
+* **Anas Mazouni** - [laravel-mix-twig-extension](https://github.com/Stormiix/laravel-mix-twig-extension)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
