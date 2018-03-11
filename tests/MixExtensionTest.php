@@ -23,7 +23,7 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
     {
         $twig = new \Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock(), ['cache' => false, 'autoescape' => false, 'optimizations' => 0]);
         $twig->addExtension(new MixExtension('public'));
-        $nodes = $twig->parse($twig->tokenize(new \Twig_Source($source,"MixTest")));
+        $nodes = $twig->parse($twig->tokenize(new \Twig_Source($source,"")));
         $this->assertEquals($expected, $nodes->getNode('body')->getNode(0));
     }
 
