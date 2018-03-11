@@ -50,8 +50,8 @@ class MixExtension extends \Twig_Extension
         if (!isset($manifest[$file])) {
             throw new \InvalidArgumentException("File {$file} not defined in asset manifest.");
         }
-
-        return $this->publicDir.'/'.$manifest[$file];
+        //Only return the file path relative to the public folder (e.g css/style.css) and not (/public/css/style)
+        return $manifest[$file];
     }
 
     /**

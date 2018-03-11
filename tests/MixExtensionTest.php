@@ -49,7 +49,7 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
     public function testGetVersionedFilePath()
     {
         $mix = new MixExtension(__DIR__.'/fixtures');
-        $this->assertSame('/home/travis/build/Stormiix/laravel-mix-twig-extension/tests/fixtures/css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
+        $this->assertSame('css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
     }
 
     /**
