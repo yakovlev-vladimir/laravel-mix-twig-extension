@@ -24,7 +24,6 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
         $twig = new \Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock(), ['cache' => false, 'autoescape' => false, 'optimizations' => 0]);
         $twig->addExtension(new MixExtension('public'));
         $nodes = $twig->parse($twig->tokenize(new \Twig_Source($source,"MixTest")));
-
         $this->assertEquals($expected, $nodes->getNode('body')->getNode(0));
     }
 
@@ -49,8 +48,8 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
 
     public function testGetVersionedFilePath()
     {
-        $mix = new MixExtension('fixtures');
-        $this->assertSame('fixtures/css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
+        $mix = new MixExtension(__DIR__.'/fixtures');
+        $this->assertSame('/home/travis/build/Stormiix/laravel-mix-twig-extension/tests/fixtures/css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
     }
 
     /**
@@ -59,8 +58,7 @@ class MixExtensionTest extends \PHPUnit\Framework\TestCase
      */
     public function testDoNotAllowUnversionedFile()
     {
-        $mix = new MixExtension(__DIR__, 'fixtures');
-
+        $mix = new MixExtension(__DIR__.'/fixtures');
         $mix->getVersionedFilePath('css/any.css');
     }
 }
