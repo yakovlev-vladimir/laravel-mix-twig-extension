@@ -1,20 +1,20 @@
 <?php
 
 /*
- * (c) Brieuc Thomas <tbrieuc@gmail.com>
+ * (c) Anas Mazouni <hello@stormix.co>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrieucThomas\Twig\Extension\tests;
+namespace Stormiix\Twig\Extension\tests;
 
-use BrieucThomas\Twig\Extension\ElixirExtension;
+use Stormiix\Twig\Extension\MixExtension;
 
 /**
- * @author Brieuc Thomas <tbrieuc@gmail.com>
+ * @author Anas Mazouni <hello@stormix.co>
  */
-class ElixirExtensionTest extends \PHPUnit_Framework_TestCase
+class MixExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider fixtureProvider
@@ -22,7 +22,7 @@ class ElixirExtensionTest extends \PHPUnit_Framework_TestCase
     public function testCompile($source, $expected)
     {
         $twig = new \Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock(), ['cache' => false, 'autoescape' => false, 'optimizations' => 0]);
-        $twig->addExtension(new ElixirExtension('public', 'build'));
+        $twig->addExtension(new MixExtension('public'));
         $nodes = $twig->parse($twig->tokenize($source));
 
         $this->assertEquals($expected, $nodes->getNode('body')->getNode(0));
@@ -32,10 +32,10 @@ class ElixirExtensionTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                '{{ elixir("css/all.css") }}',
+                '{{ mix("css/all.css") }}',
                 new \Twig_Node_Print(
                     new \Twig_Node_Expression_Function(
-                        'elixir',
+                        'mix',
                         new \Twig_Node([
                             new \Twig_Node_Expression_Constant('css/all.css', 1),
                         ]),
@@ -49,9 +49,9 @@ class ElixirExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testGetVersionedFilePath()
     {
-        $elixir = new ElixirExtension(__DIR__, 'fixtures');
+        $mix = new MixExtension(__DIR__, 'fixtures');
 
-        $this->assertSame('fixtures/css/all-294af823e6.css', $elixir->getVersionedFilePath('css/all.css'));
+        $this->assertSame('fixtures/css/all-294af823e6.css', $mix->getVersionedFilePath('css/all.css'));
     }
 
     /**
@@ -60,8 +60,8 @@ class ElixirExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testDoNotAllowUnversionedFile()
     {
-        $elixir = new ElixirExtension(__DIR__, 'fixtures');
+        $mix = new MixExtension(__DIR__, 'fixtures');
 
-        $elixir->getVersionedFilePath('css/any.css');
+        $mix->getVersionedFilePath('css/any.css');
     }
 }

@@ -1,17 +1,17 @@
 {
-    "name": "brieucthomas/elixir-twig-extension",
+    "name": "Stormiix/laravel-mix-twig-extension",
     "license": "MIT",
     "type": "library",
-    "description" : "Laravel Elixir twig extension",
-    "keywords": ["php", "laravel", "twig", "extension", "symfony"],
+    "description" : "Laravel Mix twig extension",
+    "keywords": ["php", "laravel", "twig", "extension", "mix"],
     "autoload": {
         "psr-4": {
-            "BrieucThomas\\Twig\\Extension\\": "src/"
+            "Stormiix\\Twig\\Extension\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrieucThomas\\Twig\\Extension\\Tests\\": "tests/"
+            "Stormiix\\Twig\\Extension\\Tests\\": "tests/"
         }
     },
     "require": {

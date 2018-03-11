@@ -1,42 +1,41 @@
 <?php
 
 /*
- * (c) Brieuc Thomas <tbrieuc@gmail.com>
+ * (c) Anas Mazouni <hello@stormix.co>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrieucThomas\Twig\Extension;
+namespace Stormiix\Twig\Extension;
 
 /**
- * Twig extension for the Laravel Elixir component.
+ * Twig extension for the Laravel Mix component.
  *
- * @author Brieuc Thomas <tbrieuc@gmail.com>
+ * @author Anas Mazouni <hello@stormix.co>
  */
-class ElixirExtension extends \Twig_Extension
+class MixExtension extends \Twig_Extension
 {
+    protected $ressourcesAssets;
     protected $publicDir;
-    protected $buildDir;
     protected $manifestName;
     protected $manifest;
 
-    public function __construct($publicDir, $buildDir = 'build', $manifestName = 'rev-manifest.json')
+    public function __construct($publicDir = "public", $manifestName = 'mix-manifest.json')
     {
-        $this->publicDir = rtrim($publicDir, '/');
-        $this->buildDir = trim($buildDir, '/');
+        $this->publicDir = rtrim($publicDir, '/') ;
         $this->manifestName = $manifestName;
     }
 
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('elixir', [$this, 'getVersionedFilePath']),
+            new \Twig_SimpleFunction('Mix', [$this, 'getVersionedFilePath']),
         ];
     }
 
     /**
-     * Gets the public url/path to a versioned Elixir file.
+     * Gets the public url/path to a versioned Mix file.
      *
      * @param string $file
      *
@@ -52,7 +51,7 @@ class ElixirExtension extends \Twig_Extension
             throw new \InvalidArgumentException("File {$file} not defined in asset manifest.");
         }
 
-        return $this->buildDir.'/'.$manifest[$file];
+        return $this->publicDir.'/'.$manifest[$file];
     }
 
     /**
@@ -63,7 +62,7 @@ class ElixirExtension extends \Twig_Extension
     protected function getManifest()
     {
         if (null === $this->manifest) {
-            $manifestPath = $this->publicDir.'/'.$this->buildDir.'/'.$this->manifestName;
+            $manifestPath = $this->publicDir.'/'.$this->manifestName;
             $this->manifest = json_decode(file_get_contents($manifestPath), true);
         }
 
@@ -72,6 +71,6 @@ class ElixirExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'elixir';
+        return 'Mix';
     }
 }
