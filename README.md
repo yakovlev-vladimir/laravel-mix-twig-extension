@@ -1,4 +1,4 @@
-Laravel Elixir Twig Extension
+Laravel-Mix Twig Extension
 =============================
 
 [![GitHub stars](https://img.shields.io/github/stars/Stormiix/laravel-mix-twig-extension.svg)](https://github.com/Stormiix/laravel-mix-twig-extension/stargazers)
