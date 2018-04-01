@@ -4,7 +4,7 @@ Laravel-Mix Twig Extension
 [![GitHub stars](https://img.shields.io/github/stars/Stormiix/laravel-mix-twig-extension.svg)](https://github.com/Stormiix/laravel-mix-twig-extension/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Stormiix/laravel-mix-twig-extension.svg?style=flat)](https://github.com/Stormiix/laravel-mix-twig-extension/network)
 [![Build Status](https://img.shields.io/travis/Stormiix/laravel-mix-twig-extension/master.svg?style=flat-square)](https://travis-ci.org/Stormiix/laravel-mix-twig-extension)
-[![Donations Badge](https://stormix.co/donate/images/badge.svg)]({https://stormix.co/donate/})
+[![Donations Badge](https://stormix.co/donate/images/badge.svg)](https://stormix.co/donate/)
 
 The Laravel mix `version` task appends a unique hash to filename,
 allowing for cache-busting.
