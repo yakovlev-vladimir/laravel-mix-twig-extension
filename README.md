@@ -41,7 +41,7 @@ choose the most recent version.
 ### Register the extension
 
 ``` php
-use Stormiix\Twig\Extension\MixExtension;
+use Yakovlev\Twig\Extension\MixExtension;
 
 $mix = new MixExtension(
     $publicDir,     // the absolute public directory
