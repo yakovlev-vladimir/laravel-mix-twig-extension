@@ -30,7 +30,7 @@ of PHP is recommended.
 Install using Composer:
 
 ``` bash
-composer require stormiix/laravel-mix-twig-extension:dev-master
+composer require yakovlev-vladimir/laravel-mix-twig-extension:dev-master
 ```
 
 This will edit (or create) your composer.json file and automatically
