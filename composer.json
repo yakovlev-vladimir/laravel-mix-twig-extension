@@ -1,5 +1,5 @@
 {
-    "name": "stormiix/laravel-mix-twig-extension",
+    "name": "yakovlev-vladimir/laravel-mix-twig-extension",
     "license": "MIT",
     "type": "library",
     "description" : "Laravel Mix twig extension",
@@ -15,8 +15,8 @@
         }
     },
     "require": {
-        "php": ">=7.0",
-        "twig/twig": "~2.0"
+        "php": "^8.0",
+        "twig/twig": "~3.3"
     },
     "extra": {
         "branch-alias": {

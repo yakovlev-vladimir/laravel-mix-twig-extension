@@ -57,8 +57,8 @@ Refer to the original repo.
 ### Using the Extension
 
 ``` twig
-<link rel="stylesheet" href="{{ Mix('css/all.css') }}">
-<script src="{{ Mix('js/all.js') }}"></script>
+<link rel="stylesheet" href="{{ mix('css/all.css') }}">
+<script src="{{ mix('js/all.js') }}"></script>
 ```
 
 You can surround with the `asset` twig extension to make your

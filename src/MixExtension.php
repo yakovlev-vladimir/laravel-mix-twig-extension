@@ -30,7 +30,7 @@ class MixExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('Mix', [$this, 'getVersionedFilePath']),
+            new \Twig_SimpleFunction('mix', [$this, 'getVersionedFilePath']),
         ];
     }
 
