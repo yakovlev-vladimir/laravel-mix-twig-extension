@@ -22,7 +22,7 @@ This twig extension is an adaptation of this `mix()` function.
 
 ## Requirements
 
-You need PHP >= 7.0 to use the library, but the latest stable version
+You need PHP >= 8.0 to use the library, but the latest stable version
 of PHP is recommended.
 
 ## Install
