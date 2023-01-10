@@ -28,7 +28,7 @@ class MixExtension extends \Twig\Extension\AbstractExtension
     /**
      * @var string
      */
-    protected string $manifest;
+    protected array $manifest = [];
 
     /**
      * @param string $publicDir
@@ -73,7 +73,7 @@ class MixExtension extends \Twig\Extension\AbstractExtension
      */
     protected function getManifest(): array
     {
-        if (null === $this->manifest) {
+        if (empty($this->manifest)) {
             $manifestPath = $this->publicDir . '/' . $this->manifestName;
             $this->manifest = json_decode(file_get_contents($manifestPath), true);
         }
