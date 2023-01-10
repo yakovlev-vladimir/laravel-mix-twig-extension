@@ -7,43 +7,56 @@
  * file that was distributed with this source code.
  */
 
-namespace Stormiix\Twig\Extension;
+namespace Yakovlev\Twig\Extension;
 
 /**
  * Twig extension for the Laravel Mix component.
- *
  * @author Anas Mazouni <hello@stormix.co>
  */
-class MixExtension extends \Twig_Extension
+class MixExtension extends \Twig\Extension\AbstractExtension
 {
-    protected $ressourcesAssets;
-    protected $publicDir;
-    protected $manifestName;
-    protected $manifest;
+    /**
+     * @var string
+     */
+    protected string $publicDir;
 
-    public function __construct($publicDir = "public", $manifestName = 'mix-manifest.json')
+    /**
+     * @var string
+     */
+    protected string $manifestName;
+
+    /**
+     * @var string
+     */
+    protected string $manifest;
+
+    /**
+     * @param string $publicDir
+     * @param string $manifestName
+     */
+    public function __construct(string $publicDir = "public", string $manifestName = 'mix-manifest.json')
     {
-        $this->publicDir = rtrim($publicDir, '/') ;
+        $this->publicDir = rtrim($publicDir, '/');
         $this->manifestName = $manifestName;
     }
 
-    public function getFunctions()
+    /**
+     * @return TwigFunction
+     */
+    public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('mix', [$this, 'getVersionedFilePath']),
+            new \Twig\TwigFunction('mix', [$this, 'getVersionedFilePath']),
         ];
     }
 
     /**
      * Gets the public url/path to a versioned Mix file.
-     *
      * @param string $file
-     *
      * @return string
-     *
      * @throws \InvalidArgumentException
      */
-    public function getVersionedFilePath($file)
+    public function getVersionedFilePath(string $file)
     {
         $manifest = $this->getManifest();
 
@@ -56,21 +69,20 @@ class MixExtension extends \Twig_Extension
 
     /**
      * Returns the manifest file content as array.
-     *
      * @return array
      */
-    protected function getManifest()
+    protected function getManifest(): array
     {
         if (null === $this->manifest) {
-            $manifestPath = $this->publicDir.'/'.$this->manifestName;
+            $manifestPath = $this->publicDir . '/' . $this->manifestName;
             $this->manifest = json_decode(file_get_contents($manifestPath), true);
         }
 
         return $this->manifest;
     }
 
-    public function getName()
+    public function getName(): string
     {
-        return 'Mix';
+        return 'mix';
     }
 }

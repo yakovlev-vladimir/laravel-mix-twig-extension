@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Stormiix\Twig\Extension\tests;
+namespace Yakovlev\Twig\Extension\tests;
 
-use Stormiix\Twig\Extension\MixExtension;
+use Yakovlev\Twig\Extension\MixExtension;
 
 /**
  * @author Anas Mazouni <hello@stormix.co>

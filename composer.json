@@ -4,14 +4,15 @@
     "type": "library",
     "description" : "Laravel Mix twig extension",
     "keywords": ["php", "laravel", "twig", "extension", "mix"],
+    "homepage": "https://github.com/yakovlev-vladimir/laravel-mix-twig-extension",
     "autoload": {
         "psr-4": {
-            "Stormiix\\Twig\\Extension\\": "src/"
+            "Yakovlev\\Twig\\Extension\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stormiix\\Twig\\Extension\\Tests\\": "tests/"
+            "Yakovlev\\Twig\\Extension\\Tests\\": "tests/"
         }
     },
     "require": {
